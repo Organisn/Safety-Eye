@@ -1,0 +1,22 @@
+# Learn more about .gitignore:
+#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+
+# util folder from root
+/util/
+
+# Packages .egg infos
+*.egg-info
+
+# Static images and videos
+/static/uploads/
+
+# Environment config files
+.vscode/
+.venv/
+__pycache__/
+
+# Weights
+*.pt
+!best.pt
+!osnet_x0_25_msmt17.pt
+!yolov7.pt

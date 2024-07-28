@@ -1,0 +1,21 @@
+<title>Uploads</title>
+<h1>Uploads</h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+{% if uploads and uploads|length > 0 %}
+    <ul>
+    {% for upload in uploads %}
+        <li><a href="/uploads/{{ upload }}">{{ upload }}</a> <a href="/uploads/{{ upload }}/delete">Delete</a> <a href="/uploads/{{ upload }}/rename">Rename</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No uploads</p>
+{% endif %}
+<a href="/">New upload</a>

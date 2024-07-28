@@ -1,0 +1,55 @@
+/*
+* {
+    text-align: center;
+  }
+*/
+.configurator {
+    display: none;
+    margin-left: 2%;
+    margin-bottom: 1%;
+}
+
+.subConfigurator {
+  display: none;
+  margin-left: 3%;
+  margin-bottom: 1%;
+}
+
+.canvas {
+  display: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+canvas {
+  border: 1px solid #000000;
+}
+
+#canvasImage {
+  display: none;
+}
+
+.saver {
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.saved {
+  list-style-type: none;
+}
+
+.associater {
+  display: none;
+  margin-left: 2%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.inline {
+  display: inline;
+}
+
+.top-aligned {
+  vertical-align: top;
+}

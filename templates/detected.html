@@ -1,0 +1,32 @@
+<title>Detected</title>
+{% if folder and detection %}
+    <h1>{{ detection }}</h1>
+    <p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </p>
+    <div style="margin: 0px auto 25px;">
+    {% if file %}
+        <video width="500" height="500" autoplay loop controls muted preload="auto">
+            <source src="static/uploads/{{ folder }}/{{ file }}" type="video/mp4">
+        </video>
+    {% elif detection_infos %}
+        <img src="/uploads/{{ folder }}/{{ detection_infos }}/detect" width="1080px" height="640px" alt="Looking for buffer to decode...">
+    {% else %}
+        <img src="/uploads/{{ folder }}/{{ detection }}/detect" width="1080px" height="640px" alt="Looking for buffer to decode...">
+    {% endif %}
+    </div>
+    <div style="margin: 0px auto 25px;">
+        <a href="/uploads/{{ folder }}/{{ detection }}/download">Download</a> <a href="/uploads/{{ folder }}/{{ detection }}/delete">Delete</a>
+    </div>
+{% endif %}
+<a href="/uploads/{{ folder }}">Back to resource</a>
+<a href="/uploads">Back to list</a>
+<a href="/">New upload</a>

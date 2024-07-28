@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Uploaded</title>
+        <link rel="stylesheet" href="../static/css/uploaded.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../static/js/uploaded.js"></script>
+    </head>
+    <body>
+        {% if file and folder %}
+            <h1>{{ folder }}</h1>
+            <div style="margin: 0px auto 25px;">
+                <video width="600" height="300" id="resource" autoplay loop controls muted preload="auto">
+                    <source src="static/uploads/{{ folder }}/{{ file }}" type="video/mp4">
+                </video>
+            </div>
+            <div style="margin: 0px auto 25px;">
+                <a href="/uploads/{{ folder }}/download">Download</a>
+            </div>
+            <h2>Detections</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            {% if detections and detections|length > 0 %}
+                <ul>
+                {% for detection in detections %}
+                    <li id="{{ detection }}"><a href="/uploads/{{ folder }}/{{ detection }}">{{ detection }}</a> <a href="/uploads/{{ folder }}/{{ detection }}/download">Download</a> <a href="/uploads/{{ folder }}/{{ detection }}/delete">Delete</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>Empty detection archive</p>
+            {% endif %}
+            <fieldset>
+                <legend>New Detection</legend>
+                <form action="/uploads/{{ folder }}/detect" method="post">
+                    <input type="radio" class="detection" name="detection" id="interference" value="interference">
+                    <label for="interference">PPE and Interference</label><br>
+                    <div class="configurator" id="interferenceConfigurator">
+                        <p>Display</p>
+                        <input type="checkbox" name="areas" id="areas">
+                        <label for="areas">Forbidden areas from selected interdictions</label><br>
+                        <input type="checkbox" name="teams" id="teams">
+                        <label for="teams">Team membership from selected interdictions</label><br>
+                        <p>Detect and display</p>
+                        <input type="checkbox" name="people" id="people">
+                        <label for="people">People</label><br>
+                        <input type="checkbox" name="helmets" id="helmets">
+                        <label for="helmets">Helmets</label><br>
+                        <input type="checkbox" name="suits" id="suits">
+                        <label for="suits">Suits</label><br>
+                        <input type="checkbox" name="interferences" id="interferences">
+                        <label for="interferences">Interferences</label>
+                    </div>
+                    <div class="subConfigurator" id="interferencesConfigurator">
+                        <p>Shapes</p>
+                        <ul id="shapes" class="saved">
+                            <!--<li>158,385,390,451,549,329,340,286</li>-->
+                        </ul>
+                        <input type="button" id="shaper" value="Shape new area">
+                        <div class="canvas" id="shaperContainer">
+                            <img src="../static/uploads/{{ folder }}/{{ folder }}.jpg" id="canvasImage">
+                            <canvas id="shapeCanvas">Your browser does not support the HTML canvas tag.</canvas><br>
+                            <div class="saver">
+                                <input type="button" id="shapeSaver" value="Save">
+                                <input type="button" id="shapeEraser" value="Reset">
+                            </div>
+                        </div>
+                        <p>Teams</p>
+                        <ul id="colors" class="saved">
+                            <!--<li>
+                                <div style="background-color:#e1ff00;width:25px;height:25px;margin-bottom:1px;">
+                                </div>
+                            </li>
+                            <li>
+                                <div style="background-color:#ff7300;width:25px;height:25px;margin-bottom:1px;">
+                                </div>
+                            </li>-->
+                        </ul>
+                        <input type="button" id="picker" value="Identify new team">
+                        <div class="canvas" id="pickerContainer">
+                            <canvas id="pickCanvas">Your browser does not support the HTML canvas tag.</canvas><br>
+                            <div class="saver">
+                                <input type="color" class="top-aligned" id="color">
+                                <input type="button" class="top-aligned" id="colorSaver" value="Save">
+                            </div>
+                        </div>
+                        <p >Reserved accesses</p>
+                        <ul id="rules" class="saved">
+                            <!--<li>
+                                <div class="saver">
+                                    <input type="checkbox" name="rule" value="12_567_3434_213_656_2#ffffff#000000" id="12_567_3434_213_656_2#ffffff#000000">
+                                    <label for="12_567_3434_213_656_2#ffffff#000000">
+                                        <p>12_567_3434_213_656_2</p>
+                                        <div style="background-color:#ffffff;width:10px;height:10px;margin-bottom:2px;display:inline-block;">
+                                        </div>
+                                        <div style="background-color:#000000;width:10px;height:10px;margin-bottom:2px;display:inline-block;">
+                                        </div>
+                                    </label>
+                                </div>
+                            </li>-->
+                        </ul>
+                        <input type="button" id="associater" value="Establish new access rule"><br>
+                        <div class="associater" id="areasContainer"></div>
+                        <div class="associater" id="teamsContainer">
+                            <p>Allow <b id="areaToJoinTo"></b> to be crossed by</p>
+                            <div class="saver" id="assocSaverContainer">
+                                <input type="button" id="assocSaver" value="Save">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="radio" class="detection" name="detection" id="pose" value="pose">
+                    <label for="pose">Pose</label><br>
+                    <div class="configurator" id="poseConfigurator">
+                        <p>Detect and display</p><br>
+                        <input type="checkbox" name="upstanding" id="upstanding">
+                        <label for="upstanding">Upstanding</label><br>
+                        <input type="checkbox" name="walking" id="walking">
+                        <label for="walking">Walking</label><br>
+                        <input type="checkbox" name="sitting" id="sitting">
+                        <label for="sitting">Sitting</label><br>
+                        <input type="checkbox" name="lyingdown" id="lyingdown">
+                        <label for="lyingdown">Lying Down</label><br>
+                        <input type="checkbox" name="standingup" id="standingup">
+                        <label for="standingup">Standing Up</label><br>
+                        <input type="checkbox" name="sittingdown" id="sittingdown">
+                        <label for="sittingdown">Sitting down</label><br>
+                        <input type="checkbox" name="fallendown" id="fallendown">
+                        <label for="fallendown">Fallen Down</label><br>               
+                    </div>
+                    <input type="submit" value="Detect and save" id="detect">
+                    <input type="reset" value="Reset" id="reset">
+                    <input type="hidden" name="canvas-dimensions" value="">
+                </form>
+            </fieldset><br>
+        {% endif %}
+    <a href="/uploads">Back to list</a>
+    <a href="/">New upload</a>
+    </body>
+</html>

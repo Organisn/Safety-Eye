@@ -1,0 +1,66 @@
+<title>Upload</title>
+<h1>Upload</h1>
+<fieldset>
+    <legend>New video</legend>
+    <form action="/uploads" method="post" enctype="multipart/form-data">
+        <label for="file">File</label><br>
+        <input type="file" name="file"><br>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <br>
+            {% endif %}
+        {% endwith %}
+        <input type="submit" value="Save">
+    </form>
+</fieldset><br>
+<!--GET request by default-->
+<a href="/uploads">Video collection</a>
+
+<!--{% if method == 'POST' %}-->
+<!--<title>Upload</title>-->
+    <!--{% if username and password %}-->
+<!--<p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</p>-->
+        <!--<h1>Welcome back {{ username }}!</h1>-->
+<!--<fieldset>
+    <legend>Video upload</legend>
+    <form action="/uploaded" method="post" enctype="multipart/form-data">-->
+        <!--<input type="hidden" name="username" value="{{ username }}">
+        <input type="hidden" name="password" value="{{ password }}">-->
+        <!--<label for="file">File</label><br>
+        <input type="file" name="file"><br><br>
+        <input type="submit" value="Detect">
+    </form>
+</fieldset><br>-->
+        <!--<a href="/">Log out</a>
+    {% else %}
+        <p>Access denied. Please, <a href="/">retry</a>...</p>
+    {% endif %}-->
+<!--{% else %}
+    <title>Auth</title>
+    <fieldset>
+        <legend>Authentication</legend>
+        <form action="/" method="post">
+            <label for="username">Username</label><br>
+            <input type="text" name="username"><br>
+            <label for="password">Password</label><br>
+            <input type="text" name="password"><br><br>
+            <input type="submit" value="Log in">
+        </form>
+    </fieldset>
+{% endif %}-->
