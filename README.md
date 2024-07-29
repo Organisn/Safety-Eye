@@ -40,7 +40,7 @@ Go to [/setup.py](/setup.py) and
 3. then again `pip install -e .`
 ### VSCode
 **Flask debugger**
-1. From Code GUI go to "Run and Debug"
+1. From Code GUI left bar go to "Run and Debug"
 2. Select "Create a launch.json file"
 3. Select "Flask configuration" and save
 4. By debug configuration dropdown list select "Flask configuration"
