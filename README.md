@@ -23,7 +23,6 @@ conda create -n SafetyEye python=3.9
 conda env list
 conda activate SafetyEye
 python --version
-conda install pip
 pip install --upgrade pip
 conda install importlib_metadata
 pip install Flask flask_assets simplejpeg
