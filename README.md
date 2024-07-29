@@ -3,5 +3,7 @@
 ### Git LFS (for developers)
 ```
 git lfs install
-git lfs track "/**"
+git lfs track "HumanFallingDetectTracks/**"
+git add .gitattributes
 ```
+Add tracked folder, commit and push
