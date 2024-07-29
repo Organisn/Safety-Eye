@@ -1,6 +1,9 @@
 # What if you want to anonymously real-time track your worksite PPE usage? 
 _Strongly recommended GPU support execution. Install Python OpenCV with CUDA support in your virtual environment to have meaningful performance._
 ## Setup
+_Always convert paths separators between OSs_
++ Windows: '\'
++ Linux: '/'
 ### Git LFS (for developers)
 From Git Bash:
 ```
