@@ -37,11 +37,13 @@ StrongSORTYOLOv7/InterferenceDetection
 1. From Code GUI go to "Run and Debug"
 2. Select "Create a launch.json file"
 3. Select "Flask configuration" and save
-4. By debug configuration dropdown list select "Flask configuration"  
+4. By debug configuration dropdown list select "Flask configuration"
+
 **File watcher for large workspace**
 1. Go to Preferences
 2. Open Workspace Settings (JSON)
-3. Search "files.watcherExclude" and edit JSON object excluding large folders and files  
+3. Search "files.watcherExclude" and edit JSON object excluding large folders and files
+
 **Python interpreter**
 1. Ctrl + Shift + P to open command palette
 2. Open “Python: Select Interpreter”
