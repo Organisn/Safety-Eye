@@ -4,6 +4,6 @@
 ```
 git lfs install
 git lfs track "HumanFallingDetectTracks/**"
-git add .gitattributes
+git lfs track "StrongSORTYOLOv7/**"
 ```
-Add tracked folder, commit and push
+Add tracked folders, commit and push
