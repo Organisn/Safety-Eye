@@ -2,7 +2,7 @@
 _Strongly recommended GPU support execution. Install Python OpenCV with CUDA support in your virtual environment to have meaningful performance._
 ## Setup
 _Always convert paths separators between OSs_
-+ Windows: '\\' + escape caracter
++ Windows: '\\' + escape character
 + Linux: '/'
 ### Git LFS (for developers)
 From Git Bash:
