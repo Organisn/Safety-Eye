@@ -26,12 +26,16 @@ conda install importlib_metadata
 pip install Flask flask_assets simplejpeg
 pip install -r StrongSORTYOLOv7/requirements.txt
 pip install -e StrongSORTYOLOv7/strong_sort/deep/reid # Perform Microsoft Visual C++ build tools >=14.0 installation before
-StrongSORTYOLOv7
-StrongSORTYOLOv7/yolov7
-HumanFallingDetectTracks
-.
-StrongSORTYOLOv7/InterferenceDetection
+pip install -e StrongSORTYOLOv7
+pip install -e StrongSORTYOLOv7/yolov7
+pip install -e HumanFallingDetectTracks
+pip install -e StrongSORTYOLOv7/InterferenceDetection
+pip install -e .
 ```
+Go to [/setup.py](/setup.py) and
+1. comment line 2
+2. uncomment line 3
+3. then again `pip install -e .`
 ### VSCode
 **Flask debugger**
 1. From Code GUI go to "Run and Debug"
