@@ -57,4 +57,4 @@ To make server visible through its own network
 Launch debug mode (server will automatically reload on changes)
 `flask run --debug`
 ## User tips
-+ Can find a very useful video example to input the algorithm into 
++ Functional [video example](/StrongSORTYOLOv7/InterferenceDetection/DataSource/finalTrimmed2.mp4) to input the algorithm
