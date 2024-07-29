@@ -32,3 +32,17 @@ HumanFallingDetectTracks
 .
 StrongSORTYOLOv7/InterferenceDetection
 ```
+### VSCode
+Flask debugger
+1. From Code GUI go to "Run and Debug"
+2. Select "Create a launch.json file"
+3. Select "Flask configuration" and save
+4. By debug configuration dropdown list select "Flask configuration"
+File watcher for large workspace
+1. Go to Preferences
+2. Open Workspace Settings (JSON)
+3. Search "files.watcherExclude" and edit JSON object excluding large folders and files, unnecessary at runtime
+Python interpreter
+1. Ctrl + Shift + P to open command palette
+2. Open “Python: Select Interpreter”
+3. Select setted up conda environment python interpreter
