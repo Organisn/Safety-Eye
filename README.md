@@ -48,3 +48,13 @@ StrongSORTYOLOv7/InterferenceDetection
 1. Ctrl + Shift + P to open command palette
 2. Open “Python: Select Interpreter”
 3. Select setted up conda environment python interpreter
+## Launch
+### Flask app
+Launch the app  from CMD or Powershell
+`flask run`
+To make server visible through its own network
+`flask run --host=0.0.0.0`
+Launch debug mode (server will automatically reload on changes)
+`flask run --debug`
+## User tips
++ Can find a very useful video example to input the algorithm into 
