@@ -58,10 +58,10 @@ Go to [/setup.py](/setup.py) and
 ## Launch
 ### Flask app
 Launch the app  from CMD or Powershell
-`flask run`
-To make server visible through its own network
+`flask run`  
+To make server visible through its own network  
 `flask run --host=0.0.0.0`
-Launch debug mode (server will automatically reload on changes)
+Launch debug mode (server will automatically reload on changes)  
 `flask run --debug`
 ## User tips
 + Functional [video example](/StrongSORTYOLOv7/InterferenceDetection/DataSource/finalTrimmed2.mp4) to input the algorithm
